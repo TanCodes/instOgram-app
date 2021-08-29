@@ -1,0 +1,26 @@
+
+def Get_Profile_Pic(request):
+    pass
+# def Get_Profile_Pic(request):
+#     # val1 = request.POST['title']
+#     # val2 = request.POST['msg']
+#     # val3 = int(request.POST['time'])
+#     header = {
+#         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+#     }
+
+#     URL_PATH_ONE = "https://www.instagram.com/"
+#     USER_NAME = request.POST['msg']
+#     USER_NAME = USER_NAME.replace("@", "")
+#     TAIL = "?__a=1"
+#     URL = URL_PATH_ONE + USER_NAME + TAIL
+#     if not USER_NAME:
+#         result = "CANT KEPT EMPTY"
+#         return render(request, 'home.html', {"result": result})
+#     else:
+#         response = requests.get(URL, headers=header).json()
+#         dp_loc = response["graphql"]["user"]["profile_pic_url_hd"]
+#         return render(request, 'home.html', {"result": dp_loc})
+
+urls
+ path('Get_Profile_Pic', views.Get_Profile_Pic, name='Get_Profile_Pic'),
