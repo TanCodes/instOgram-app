@@ -1,0 +1,1 @@
+web gunicorn instogram.wsgi:application --log-file -
