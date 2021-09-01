@@ -122,12 +122,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'instogram/static')
+# ]
+
+# django will put this all static files in assest
+STATIC_ROOT = os.path.join(BASE_DIR, 'instogram/staticfiles')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'instogram/static')
 ]
 
-# django will put this all static files in assest
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
