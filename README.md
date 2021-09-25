@@ -1,11 +1,13 @@
 <h3 align="center">  
-  <img src="https://ik.imagekit.io/tfme5aczhhf/instogram/tr:w-50/logonew_WCIx83kQM.png?updatedAt=1629962161668"/> instOgram
+  <img src="https://ik.imagekit.io/tfme5aczhhf/instogram/tr:w-50/logonew_WCIx83kQM.png?updatedAt=1629962161668"/> 
+  <br> instOgram
 </h3>
 
 ##### Made with:
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ## About instOgram
 > ##### There are times when you are scrolling through your Instagram feed and you come across some interesting Instagram videos, which you wish you could download so you could watch them offline when you want, but Instagram doesn't allow you to download any Instagram videos or post etc.
