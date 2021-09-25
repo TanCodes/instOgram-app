@@ -42,7 +42,7 @@ margin-right: 60px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
-  .get_post_button , .get_video_button{
+  .get_post_button , .get_video_button, .get_profile_button{
     background: #7059DA;
     border-radius: 0.5rem;
     padding: 8px;
@@ -50,7 +50,7 @@ margin-right: 60px;
     color: #F7F7F9;
   }
 
-  #collapseOne, #collapseTwo{
+  #collapseOne, #collapseTwo, #collapseThree{
     box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     background: #111047;
     border-radius: 1rem;
@@ -137,11 +137,3 @@ margin-right: 60px;
   .button:hover {
     opacity: 0.5;
   }
-
-    /* #fixedbutton {
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 5px;
-    right: 0;
-    width: 100px;
-  } */

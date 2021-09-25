@@ -1,15 +1,12 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.http.response import ResponseHeaders
 import requests
-
 
 link = "https://www.instagram.com/"
 mobile_link = "?utm_medium=copy_link"
 web_link = "?utm_source=ig_web_copy_link"
+TAIL = "?__a=1"
 
-
-""" ------------------  GET post ----------------------"""
+# > ------------------  GET post ----------------------
 
 
 def Get_Post(request):
@@ -39,6 +36,7 @@ def Get_Post(request):
         if not PHOTO_URL or (link or mobile_link or web_link) not in PHOTO_URL:
             Error = "Invalid Link!"
             return render(request, 'home.html', {"Error": Error})
+
             # output
         else:
             try:
@@ -48,13 +46,13 @@ def Get_Post(request):
                 return render(request, 'home.html', {"result": photo})
             except:
                 Error = "Invalid Link!"
-                return render(request, 'home.html', {"video_Error": Error})
+                return render(request, 'home.html', {"Error": Error})
 
     else:
         return render(request, 'home.html')
 
 
-""" ------------------  GET VIDEOS ----------------------"""
+# > ------------------  GET Video ----------------------
 
 
 def Get_Videos(request):
@@ -78,8 +76,8 @@ def Get_Videos(request):
         if not VIDEO_URL or link not in VIDEO_URL:
             Error = "Invalid Link!"
             return render(request, 'home.html', {"video_Error": Error})
-            # output
 
+            # output
         else:
             try:
                 response = requests.get(VIDEO_URL, headers=header).json()
@@ -88,6 +86,43 @@ def Get_Videos(request):
             except KeyError:
                 Error = "Invalid Link!"
                 return render(request, 'home.html', {"video_Error": Error})
+
+    else:
+        return render(request, 'home.html')
+
+# > ------------------  GET PROFILE PIC ----------------------
+
+
+def Get_Profile_Pic(request):
+    if request.method == "POST":
+        header = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+        }
+
+        # get message
+        USER_NAME = request.POST['msg']
+
+        USERNAME = USER_NAME.replace("@", "")
+
+        PROFILE_USERNAME = link + USERNAME + TAIL
+
+        # validation
+        # if fields empty
+        if not PROFILE_USERNAME or link not in PROFILE_USERNAME:
+            Error = "Invalid Link!"
+
+            return render(request, 'home.html', {"profile_Error": Error})
+
+            # output
+        else:
+            try:
+                response = requests.get(
+                    PROFILE_USERNAME, headers=header).json()
+                PROFILE_IMG = response["graphql"]["user"]["profile_pic_url_hd"]
+                return render(request, 'home.html', {"profile_result": PROFILE_IMG})
+            except ValueError or KeyError:
+                Error = "Invalid Link!"
+                return render(request, 'home.html', {"profile_Error": Error})
 
     else:
         return render(request, 'home.html')
