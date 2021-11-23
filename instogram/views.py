@@ -47,7 +47,7 @@ def Get_Post(request):
                 photo = response["graphql"]["shortcode_media"]["display_resources"]
                 photo = photo[2]["src"]
                 return render(request, 'home.html', {"result": photo})
-            except:
+            except ValueError or KeyError:
                 Error = "Invalid Link!"
                 return render(request, 'home.html', {"Error": Error})
 
@@ -86,7 +86,7 @@ def Get_Videos(request):
                 response = requests.get(VIDEO_URL, headers=header).json()
                 VIDEO = response["graphql"]["shortcode_media"]["video_url"]
                 return render(request, 'home.html', {"video_result": VIDEO})
-            except KeyError:
+            except ValueError or KeyError:
                 Error = "Invalid Link!"
                 return render(request, 'home.html', {"video_Error": Error})
 
