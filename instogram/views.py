@@ -119,10 +119,12 @@ def Get_Profile_Pic(request):
             # output
         else:
             try:
-                response = requests.get(
-                    PROFILE_USERNAME)
-                response = response.json()
-                PROFILE_IMG = response["graphql"]["user"]["profile_pic_url_hd"]
+                resp = f"https://www.instagram.com/{PROFILE_USERNAME}/?__a=1"
+                response = requests.get(resp)
+#                 response = requests.get(
+#                     PROFILE_USERNAME)
+                responsex = response.json()
+                PROFILE_IMG = responsex["graphql"]["user"]["profile_pic_url_hd"]
                 return render(request, 'home.html', {"profile_result": PROFILE_IMG})
             except ValueError or KeyError and Exception as e:
                 Error = f"Invalid Link! {e} {PROFILE_USERNAME} {response}"
