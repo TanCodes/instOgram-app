@@ -120,7 +120,7 @@ def Get_Profile_Pic(request):
         else:
             try:
                 resp = f"https://www.instagram.com/{USERNAME}/?__a=1"
-                response = requests.get(resp)
+                response = requests.get(resp, headers=header)
 #                 response = requests.get(
 #                     PROFILE_USERNAME)
                 responsex = response.json()
