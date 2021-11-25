@@ -120,11 +120,12 @@ def Get_Profile_Pic(request):
         else:
             try:
                 response = requests.get(
-                    PROFILE_USERNAME, headers=header).json()
+                    PROFILE_USERNAME, headers=header)
+                response = response.json()
                 PROFILE_IMG = response["graphql"]["user"]["profile_pic_url_hd"]
                 return render(request, 'home.html', {"profile_result": PROFILE_IMG})
             except ValueError or KeyError and Exception as e:
-                Error = f"Invalid Link! {e} {PROFILE_USERNAME} {PROFILE_IMG}"
+                Error = f"Invalid Link! {e} {PROFILE_USERNAME} {response}"
                 return render(request, 'home.html', {"profile_Error": Error})
 
     else:
