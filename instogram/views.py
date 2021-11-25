@@ -119,7 +119,7 @@ def Get_Profile_Pic(request):
             # output
         else:
             try:
-                resp = f"https://www.instagram.com/{PROFILE_USERNAME}/?__a=1"
+                resp = f"https://www.instagram.com/{USERNAME}/?__a=1"
                 response = requests.get(resp)
 #                 response = requests.get(
 #                     PROFILE_USERNAME)
