@@ -120,7 +120,7 @@ def Get_Profile_Pic(request):
         else:
             try:
                 response = requests.get(
-                    PROFILE_USERNAME, headers=header)
+                    PROFILE_USERNAME)
                 response = response.json()
                 PROFILE_IMG = response["graphql"]["user"]["profile_pic_url_hd"]
                 return render(request, 'home.html', {"profile_result": PROFILE_IMG})
