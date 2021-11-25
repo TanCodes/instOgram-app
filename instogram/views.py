@@ -127,7 +127,7 @@ def Get_Profile_Pic(request):
                 PROFILE_IMG = responsex["graphql"]["user"]["profile_pic_url_hd"]
                 return render(request, 'home.html', {"profile_result": PROFILE_IMG})
             except ValueError or KeyError and Exception as e:
-                Error = f"Invalid Link! {e} {PROFILE_USERNAME} {response}"
+                Error = f"Invalid Link! {e} {resp} {response}"
                 return render(request, 'home.html', {"profile_Error": Error})
 
     else:
