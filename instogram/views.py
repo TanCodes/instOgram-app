@@ -98,11 +98,9 @@ def Get_Videos(request):
 
 def Get_Profile_Pic(request):
     if request.method == "POST":
-#         header = {
-#             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
-#         }
-        
-        header = {'Accept': 'application/json'}
+        header = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
+        }
 
         # get message
         USER_NAME = request.POST['msg']
@@ -129,7 +127,7 @@ def Get_Profile_Pic(request):
                 PROFILE_IMG = responsex["graphql"]["user"]["profile_pic_url_hd"]
                 return render(request, 'home.html', {"profile_result": PROFILE_IMG})
             except ValueError or KeyError and Exception as e:
-                Error = f"Invalid Link! {e} {resp} {response}"
+                Error = f"Invalid Link! {e} {resp} {response} {responsex}"
                 return render(request, 'home.html', {"profile_Error": Error})
 
     else:
