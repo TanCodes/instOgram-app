@@ -128,7 +128,7 @@ def Get_Profile_Pic(request):
                 return render(request, 'home.html', {"profile_result": PROFILE_IMG})
             except ValueError or KeyError and Exception as e:
                 print(f"sdfsfsdfsfs{responsex}")
-                Error = f"Invalid Link! {e} {response}"
+                Error = f"Invalid Link! {e}"
                 return render(request, 'home.html', {"profile_Error": Error})
 
     else:
